@@ -35,6 +35,6 @@ def addmethod(NewPart_String):
     else:
         return end_turn # Ends the players turn
 
-
+#But where the changes at tho?
 
 main()
