@@ -1,5 +1,8 @@
+
 import random
 parts = {1:"body", 2:"head", 3:"legs", 4:"eyes", 5:"feeler", 6:"tail"}
+
+
 def roll_dice():
    """
    Accesses a dictionary with the body parts as the values and prints the corresponding number on dice,
@@ -10,7 +13,16 @@ def roll_dice():
    print("You rolled " + str(x)) #Informs the player of their number
    print(parts.get(x)) #Uses the dictionary to find the corresponding part and relays that information to the user
 
+def is_complete (player):
+    xlist = {"body", "head", "legs", "legs", "legs", "eye", "eye", "feeler","feeler", "tail"}
+    if player == xlist:
+        is_complete = True
+    else:
+        is_complete = False
+
+
 def main():
     roll_dice()
+    is_complete()
 
 main()
