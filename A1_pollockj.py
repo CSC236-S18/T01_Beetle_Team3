@@ -25,4 +25,16 @@ def main():
     roll_dice()
     is_complete()
 
+def addmethod(NewPart_String):
+    """Checks if the "check" is True. If it is it will append it to the player's part's list,
+    if False, will end the players turn.
+    :return: end_turn
+    """
+    if check == True:
+        playerlist.append(NewPart_String) #Appends to the players list
+    else:
+        return end_turn # Ends the players turn
+
+
+
 main()
