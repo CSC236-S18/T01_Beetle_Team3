@@ -1,6 +1,4 @@
-
 import random
-
 def roll_dice():
    """
    Accesses a dictionary with the body parts as the values and prints the corresponding number on dice,
@@ -9,9 +7,9 @@ def roll_dice():
    """
    parts = {1: "body", 2: "head", 3: "two legs", 4: "eye", 5: "feeler", 6: "tail"}
    x = random.randint(1,6)  #A die has 6 sides so the number ranges from 1 to 6
-   print("You rolled " + str(x)) #Informs the player of their number
-   print(parts.get(x)) #Uses the dictionary to find the corresponding part and relays that information to the user
    return (parts .get(x))
+
+
 def check(New_Part, Player):
     """
     :param Player: List of body parts already assigned
@@ -53,8 +51,6 @@ def check(New_Part, Player):
     else:
         return False
 
-
-
 def addmethod(Check, New_part, playerlist):
     """Checks if the "check" is True. If it is it will append it to the player's part's list,
     if False, will end the players turn.
@@ -63,28 +59,44 @@ def addmethod(Check, New_part, playerlist):
 
     if Check == True:
         playerlist.append(New_part) #Appends to the player's list
-        print("You've collected a ", New_part)
         return True # Lets the player roll again
     else:
         return False # Ends the players turn
 
-
-
 def is_complete (player):
-    xlist = {"body", "head", "legs", "legs", "legs", "eye", "eye", "feeler","feeler", "tail"}
+    xlist = {"body", "head", "two legs", "two legs", "two legs", "eye", "eye", "feeler","feeler", "tail"}
     if player == xlist:
         "You have all the beetle parts you have WON!!!!!"
         return True
     else:
         return False
 
-
 def main():
     P1 = []
     P2 = []
+    current_player = P1
     print("Welcome to BEETLE THE GAME\nThis is a one player game of luck to see if you can get all the beetle parts before the computer")
-    x = input("type roll in order to roll the dice")
-    if x == "roll":
-        print("asdfasdfa")
+    while len(current_player) <10:
+        if current_player == P1:
+            x = input("type roll in order to roll the dice")
+            if x == "roll":
+                new_part = roll_dice()
+                play_again = addmethod(check(new_part,P1), new_part, P1)
+                print("you rolled a ",new_part)
+                print("and your beetle currently has ", P1)
+                if play_again == True:
+                    current_player = P1
+                elif play_again == False:
+                    current_player = P2
+        elif current_player == P2:
+            p2_new_part = roll_dice()
+            play_again = addmethod(check(p2_new_part,P2), p2_new_part, P2)
+            print("the computer rolled a ", p2_new_part)
+            print("the computer's beetle currently has ", P2)
+            if play_again == True:
+                    current_player = P2
+            elif play_again == False:
+                    current_player = P1
+        is_complete (current_player)
+
 main()
-#nopey
