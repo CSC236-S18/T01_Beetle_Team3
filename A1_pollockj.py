@@ -55,16 +55,18 @@ def check(New_Part, Player):
 
 
 
-def addmethod(NewPart_String):
+def addmethod(Check, New_part, playerlist):
     """Checks if the "check" is True. If it is it will append it to the player's part's list,
     if False, will end the players turn.
     :return: end_turn
     """
 
-    if check == True:
-        playerlist.append(NewPart_String) #Appends to the players list
+    if Check == True:
+        playerlist.append(New_part) #Appends to the player's list
+        print("You've collected a ", New_part)
+        return True # Lets the player roll again
     else:
-        return end_turn # Ends the players turn
+        return False # Ends the players turn
 
 
 
@@ -81,7 +83,8 @@ def main():
     P1 = []
     P2 = []
     print("Welcome to BEETLE THE GAME\nThis is a one player game of luck to see if you can get all the beetle parts before the computer")
-    x = input("type role in order to role the dice")
-    if x == "role":
+    x = input("type roll in order to roll the dice")
+    if x == "roll":
         print("asdfasdfa")
 main()
+#nope
