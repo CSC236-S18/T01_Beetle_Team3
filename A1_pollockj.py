@@ -17,7 +17,7 @@ def roll_dice():
 def check(New_Part, Player):
     """
     :param Player: List of body parts already assigned
-    :param New_Part: After the dice has been rolled and a new part is picked under the stipulations presented
+    :param New_Part: After the dice has been rolled and a new part is picked under the stipulations presented.
     :return: True or False based on the check
     """
     if New_Part == "body":
